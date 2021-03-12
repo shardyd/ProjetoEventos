@@ -1,0 +1,47 @@
+PODS:
+  - Gallery (2.4.0)
+  - InputBarAccessoryView (5.2.3):
+    - InputBarAccessoryView/Core (= 5.2.3)
+  - InputBarAccessoryView/Core (5.2.3)
+  - Kingfisher (6.2.1)
+  - MessageKit (3.5.0):
+    - InputBarAccessoryView (~> 5.2.1)
+  - NVActivityIndicatorView/AppExtension (4.8.0)
+  - ProgressHUD (13.4)
+  - Shuffle-iOS (0.4.0)
+  - SKPhotoBrowser (6.1.0)
+
+DEPENDENCIES:
+  - Gallery
+  - InputBarAccessoryView
+  - Kingfisher (~> 6.0)
+  - MessageKit
+  - NVActivityIndicatorView/AppExtension
+  - ProgressHUD
+  - Shuffle-iOS
+  - SKPhotoBrowser
+
+SPEC REPOS:
+  trunk:
+    - Gallery
+    - InputBarAccessoryView
+    - Kingfisher
+    - MessageKit
+    - NVActivityIndicatorView
+    - ProgressHUD
+    - Shuffle-iOS
+    - SKPhotoBrowser
+
+SPEC CHECKSUMS:
+  Gallery: b7fc1aeb68a39ad6d2c423574750196bf9b25e5c
+  InputBarAccessoryView: f814a0317d47687fafc6bac9e4df6015eaf5b764
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  MessageKit: fb539583599cd914e8e2d41fe7bdceb4bf686565
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  ProgressHUD: 137a7fc677487c5581668f4490563124fb35c232
+  Shuffle-iOS: 87e4d3503475f3d684a375358649911e36fe139f
+  SKPhotoBrowser: 343de95d89dc7913763c5dda243cc6e606e4a168
+
+PODFILE CHECKSUM: 9cbaaadceaaf46a19f7e67233ae28fdf3f15e11c
+
+COCOAPODS: 1.10.1
