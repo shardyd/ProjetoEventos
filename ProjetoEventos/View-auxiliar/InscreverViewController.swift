@@ -13,6 +13,8 @@ class InscreverViewController: UIViewController {
     //MARK: variavel
     var idEvento = ""
     var tituloEvento = ""
+    var retornoInscricao = ""
+    var events = [AnyObject]()
     
     //MARK: outlet
     @IBOutlet weak var labelTituloEvento: UILabel!
@@ -98,23 +100,47 @@ class InscreverViewController: UIViewController {
         var request = URLRequest(url: URL(string: "https://5f5a8f24d44d640016169133.mockapi.io/api/checkin?eventId=\(idEvento)&name=\(nome)&email=\(email)")!,timeoutInterval: Double.infinity)
         request.httpMethod = "POST"
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { [self] data, response, error in
           guard let data = data else {
-            print(String(describing: error))
+            //print(String(describing: error))
+            self .mensagemRetornoInscricao(codigo: "999", erro: String(describing: error))
             semaphore.signal()
             return
           }
           print(String(data: data, encoding: .utf8)!)
             
-            ProgressHUD.showError("Ops! \nAlgo deu errado...\n\n" + String(data: data, encoding: .utf8)!)
             
-          semaphore.signal()
-        }
+            let decoder = JSONDecoder()
+            do {
+                let decodedData = try decoder.decode(Inscricao.self, from: data)
+                retornoInscricao = decodedData.code
 
+                self .mensagemRetornoInscricao(codigo: retornoInscricao, erro: "")
+            } catch {
+                self .mensagemRetornoInscricao(codigo: "999", erro: "")
+                print(error)
+            }
+
+            semaphore.signal()
+        }
+        
         task.resume()
         semaphore.wait()
-
-
-
     }
+    
+    private func mensagemRetornoInscricao(codigo: String, erro: String){
+        if codigo == "200" {
+            ProgressHUD.showSuccess("Feito! \n\nCadastro realizado com sucesso.")
+            self.dismissSelf()
+        } else {
+            ProgressHUD.showError("Ops! \nAlgo deu errado...\n\n" + erro)
+        }
+    }
+    
+    @objc private func dismissSelf() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
 }

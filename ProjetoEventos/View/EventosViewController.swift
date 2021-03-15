@@ -14,6 +14,7 @@ class EventosViewController: UIViewController {
     var eventos = [Eventos]()
     let button = UIButton()
     let labelErro = UILabel()
+    let chamada = ChamaAPI()
     
     //MARK: outlets
     @IBOutlet var collectionView: UICollectionView!
@@ -24,13 +25,15 @@ class EventosViewController: UIViewController {
         //-- deixa sempre no modo claro
         overrideUserInterfaceStyle = .light
         
-        self.buscarEventosViaApi()
+        self.buscarEventos()
 
+        //-- cria o botao pra voltar para pagina inicial
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Voltar",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(dismissSelf))
         
+        //-- registra a xib pra usar na collection view
         collectionView?.register(UINib(nibName: "EventosCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EventosCollectionViewCell")
     }
 
@@ -41,45 +44,19 @@ class EventosViewController: UIViewController {
     
     
     //MARK: funcoes swift
-    private func buscarEventosViaApi () {
-        //-- url para buscar os eventos, estava com http mas so aceita https
-        let urlString = "https://5f5a8f24d44d640016169133.mockapi.io/api/events"
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                //let str = String(decoding: data, as: UTF8.self)
-                //let data2 = Data(str.utf8)
-                parseJSON(quoteData: data)
-            }
+    private func buscarEventos () {
+        eventos = chamada.buscarEventosViaApi()
+        
+        // inverti a array pra mostrar os eventos com foto primeiro
+        eventos = eventos.sorted { (first, second) -> Bool in
+            return first.id > second.id
         }
+
+        collectionView.reloadData()
     }
 
-    //-- decodificar o json para usar na array
-    func parseJSON(quoteData: Data) {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode([Eventos].self, from: quoteData)
-            
-            eventos = decodedData
-            
-            // inverti a array pra mostrar os eventos com foto primeiro
-            eventos = eventos.sorted { (first, second) -> Bool in
-                return first.id > second.id
-            }
-
-            //print(decodedData[0].title)
-            
-        } catch {
-            print(error)
-        }
-    }
-    
     //MARK: funções do objective c
     @objc private func chamarDetalhesdoEvento(idEvento: String) {
-        
-//        let vc = DetalhesEventoViewController()
-//        vc.idEvento = idEvento
-//        vc.view.backgroundColor = .white
-//        navigationController?.pushViewController(vc, animated: true)
         ProgressHUD.show()
         let vc = DetalhesEventoTableViewController()
         vc.idEvento = idEvento
@@ -110,7 +87,6 @@ extension EventosViewController: UICollectionViewDataSource {
             labelErro.numberOfLines = 4
             labelErro.textAlignment = .center
             labelErro.frame = CGRect(x: 100, y: 150, width: 200, height: 152)
-
             
         }
         
@@ -124,31 +100,17 @@ extension EventosViewController: UICollectionViewDataSource {
 
         cell.labelTituloEvento.text = dict.title
 
-        var strImagem = dict.image
+        let strImagem = dict.image
 
-        if (dict.id == "1"){
-            //strImagem = "http://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png"
-            //strImagem = "https://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png"
-            strImagem = "https://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png"
-
-            let url = URL(string: strImagem)
-            cell.imageEvento.kf.setImage(with: url)
-
-            if cell.imageEvento.image == nil{
-                cell.imageEvento.image = UIImage(named: "nofoto2.jpg")
-            }
-        } else {
-            let subStrIMagem = String(strImagem.prefix(5))
-            
-            if (subStrIMagem == "http:") {
-                strImagem = strImagem.replacingOccurrences(of: "http", with: "https")
-            }
-            let url = URL(string: strImagem)
-            cell.imageEvento.kf.setImage(with: url)
-            
-            if cell.imageEvento.image == nil{
-                cell.imageEvento.image = UIImage(named: "nofoto2.jpg")
-            }
+        //let subStrIMagem = String(strImagem.prefix(5))
+        //if (subStrIMagem == "http:") {
+            //strImagem = strImagem.replacingOccurrences(of: "http", with: "https")
+        //}
+        let url = URL(string: strImagem)
+        cell.imageEvento.kf.setImage(with: url)
+        
+        if cell.imageEvento.image == nil{
+            cell.imageEvento.image = UIImage(named: "nofoto2.jpg")
         }
         
         cell.imageEvento.layer.cornerRadius = 15

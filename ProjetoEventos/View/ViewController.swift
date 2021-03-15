@@ -23,12 +23,7 @@ class ViewController: UIViewController {
         imageBack.image = UIImage(named: "entrada.png")
         imageBack.translatesAutoresizingMaskIntoConstraints = false
 
-        /*var constraints = [NSLayoutConstraint]()
-        constraints.append(imageBack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5, constant: 100))
-        constraints.append(imageBack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50))
-        constraints.append(imageBack.centerXAnchor.constraint(equalTo: view.centerXAnchor))
-        constraints.append(imageBack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5, constant: 100))
-        NSLayoutConstraint.activate(constraints)*/
+        //-- ajusta constraints pra posicionar a imagem de entrada
         let horizontalConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let verticalConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 30)
         let widthConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
@@ -47,14 +42,13 @@ class ViewController: UIViewController {
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(chamarTelaEventos), for: .touchUpInside)
      
-                
+        //-- ajusta constraints pra posicionar o botao de entrada
         button.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -30)
         let widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 200)
         let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 52)
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
-
         
     }
 
@@ -62,6 +56,7 @@ class ViewController: UIViewController {
         
         ProgressHUD.show()
         
+        //-- verifica se tem acesso a internet para chamar os webservices
         if Reachability.isConnectedToNetwork(){
             let rootVC = EventosViewController()
             let navVC = UINavigationController(rootViewController: rootVC)

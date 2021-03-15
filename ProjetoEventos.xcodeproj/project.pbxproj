@@ -22,6 +22,8 @@
 		0A46C0CC25FE8134005F7B3B /* lauchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0CB25FE8134005F7B3B /* lauchscreen.png */; };
 		0A46C0D025FE8F57005F7B3B /* InscreverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A46C0CE25FE8F57005F7B3B /* InscreverViewController.swift */; };
 		0A46C0D125FE8F58005F7B3B /* InscreverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0CF25FE8F57005F7B3B /* InscreverViewController.xib */; };
+		0AA8BD9D25FFA8C00048B13D /* ProjetoEventosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8BD9C25FFA8C00048B13D /* ProjetoEventosTests.swift */; };
+		0AA8BDAD25FFCAFE0048B13D /* Inscricao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8BDAC25FFCAFE0048B13D /* Inscricao.swift */; };
 		0ACE9B8725FBAB59009955EF /* EventosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE9B8625FBAB59009955EF /* EventosCollectionViewCell.xib */; };
 		0ACE9B9C25FBD290009955EF /* DetalhesEventoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE9B9A25FBD290009955EF /* DetalhesEventoViewController.swift */; };
 		0ACE9B9D25FBD290009955EF /* DetalhesEventoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE9B9B25FBD290009955EF /* DetalhesEventoViewController.xib */; };
@@ -40,6 +42,16 @@
 		A285B458EE78D5FE07A1A9B1 /* Pods_ProjetoEventos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DEB0DFDE42073D50D2E7CB /* Pods_ProjetoEventos.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0AA8BD9F25FFA8C00048B13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AD9D31B25FB8FA200897F93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AD9D32225FB8FA200897F93;
+			remoteInfo = ProjetoEventos;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0A1D78F625FC1D3700B80D98 /* fundo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fundo.jpeg; sourceTree = "<group>"; };
 		0A1D78F925FC242700B80D98 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
@@ -56,6 +68,10 @@
 		0A46C0CB25FE8134005F7B3B /* lauchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lauchscreen.png; sourceTree = "<group>"; };
 		0A46C0CE25FE8F57005F7B3B /* InscreverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscreverViewController.swift; sourceTree = "<group>"; };
 		0A46C0CF25FE8F57005F7B3B /* InscreverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InscreverViewController.xib; sourceTree = "<group>"; };
+		0AA8BD9A25FFA8C00048B13D /* ProjetoEventosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoEventosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA8BD9C25FFA8C00048B13D /* ProjetoEventosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoEventosTests.swift; sourceTree = "<group>"; };
+		0AA8BD9E25FFA8C00048B13D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AA8BDAC25FFCAFE0048B13D /* Inscricao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscricao.swift; sourceTree = "<group>"; };
 		0ACE9B8625FBAB59009955EF /* EventosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventosCollectionViewCell.xib; sourceTree = "<group>"; };
 		0ACE9B9A25FBD290009955EF /* DetalhesEventoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesEventoViewController.swift; sourceTree = "<group>"; };
 		0ACE9B9B25FBD290009955EF /* DetalhesEventoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetalhesEventoViewController.xib; sourceTree = "<group>"; };
@@ -79,6 +95,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0AA8BD9725FFA8C00048B13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AD9D32025FB8FA200897F93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,6 +120,15 @@
 				0ACE9B9B25FBD290009955EF /* DetalhesEventoViewController.xib */,
 			);
 			path = "View-sem-uso";
+			sourceTree = "<group>";
+		};
+		0AA8BD9B25FFA8C00048B13D /* ProjetoEventosTests */ = {
+			isa = PBXGroup;
+			children = (
+				0AA8BD9C25FFA8C00048B13D /* ProjetoEventosTests.swift */,
+				0AA8BD9E25FFA8C00048B13D /* Info.plist */,
+			);
+			path = ProjetoEventosTests;
 			sourceTree = "<group>";
 		};
 		0ACE9B9525FBC87C009955EF /* Imagens */ = {
@@ -118,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACE9BAA25FBFA3D009955EF /* Extensao.swift */,
+				0A46C0A725FD9A4F005F7B3B /* ChamaAPI.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -126,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD9D32525FB8FA200897F93 /* ProjetoEventos */,
+				0AA8BD9B25FFA8C00048B13D /* ProjetoEventosTests */,
 				0AD9D32425FB8FA200897F93 /* Products */,
 				3260936B275ECB74A6ADFBB4 /* Pods */,
 				3891C0722196EB24DCE2771A /* Frameworks */,
@@ -136,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD9D32325FB8FA200897F93 /* ProjetoEventos.app */,
+				0AA8BD9A25FFA8C00048B13D /* ProjetoEventosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +211,7 @@
 			children = (
 				0AD9D34225FB98AD00897F93 /* Eventos.swift */,
 				0ACE9BA125FBED87009955EF /* EventoDetalhe.swift */,
-				0A46C0A725FD9A4F005F7B3B /* ChamaAPI.swift */,
+				0AA8BDAC25FFCAFE0048B13D /* Inscricao.swift */,
 			);
 			path = Modelo;
 			sourceTree = "<group>";
@@ -214,6 +249,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0AA8BD9925FFA8C00048B13D /* ProjetoEventosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AA8BDA325FFA8C00048B13D /* Build configuration list for PBXNativeTarget "ProjetoEventosTests" */;
+			buildPhases = (
+				0AA8BD9625FFA8C00048B13D /* Sources */,
+				0AA8BD9725FFA8C00048B13D /* Frameworks */,
+				0AA8BD9825FFA8C00048B13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AA8BDA025FFA8C00048B13D /* PBXTargetDependency */,
+			);
+			name = ProjetoEventosTests;
+			productName = ProjetoEventosTests;
+			productReference = 0AA8BD9A25FFA8C00048B13D /* ProjetoEventosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0AD9D32225FB8FA200897F93 /* ProjetoEventos */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AD9D33725FB8FA400897F93 /* Build configuration list for PBXNativeTarget "ProjetoEventos" */;
@@ -242,6 +295,10 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					0AA8BD9925FFA8C00048B13D = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 0AD9D32225FB8FA200897F93;
+					};
 					0AD9D32225FB8FA200897F93 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -261,11 +318,19 @@
 			projectRoot = "";
 			targets = (
 				0AD9D32225FB8FA200897F93 /* ProjetoEventos */,
+				0AA8BD9925FFA8C00048B13D /* ProjetoEventosTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0AA8BD9825FFA8C00048B13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AD9D32125FB8FA200897F93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +400,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0AA8BD9625FFA8C00048B13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AA8BD9D25FFA8C00048B13D /* ProjetoEventosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AD9D31F25FB8FA200897F93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +417,7 @@
 				0AD9D32B25FB8FA200897F93 /* ViewController.swift in Sources */,
 				0A46C0A425FD9604005F7B3B /* DetalhesEventoTableViewController.swift in Sources */,
 				0AD9D33D25FB91FF00897F93 /* EventosViewController.swift in Sources */,
+				0AA8BDAD25FFCAFE0048B13D /* Inscricao.swift in Sources */,
 				0ACE9B9C25FBD290009955EF /* DetalhesEventoViewController.swift in Sources */,
 				0A46C0A825FD9A4F005F7B3B /* ChamaAPI.swift in Sources */,
 				0AD9D34925FB9EDF00897F93 /* EventosCollectionViewCell.swift in Sources */,
@@ -356,6 +430,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0AA8BDA025FFA8C00048B13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AD9D32225FB8FA200897F93 /* ProjetoEventos */;
+			targetProxy = 0AA8BD9F25FFA8C00048B13D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0AD9D32C25FB8FA200897F93 /* Main.storyboard */ = {
@@ -377,6 +459,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0AA8BDA125FFA8C00048B13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5DZUZ6Z47;
+				INFOPLIST_FILE = ProjetoEventosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Horr.ProjetoEventosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjetoEventos.app/ProjetoEventos";
+			};
+			name = Debug;
+		};
+		0AA8BDA225FFA8C00048B13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5DZUZ6Z47;
+				INFOPLIST_FILE = ProjetoEventosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Horr.ProjetoEventosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjetoEventos.app/ProjetoEventos";
+			};
+			name = Release;
+		};
 		0AD9D33525FB8FA400897F93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -536,6 +658,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0AA8BDA325FFA8C00048B13D /* Build configuration list for PBXNativeTarget "ProjetoEventosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA8BDA125FFA8C00048B13D /* Debug */,
+				0AA8BDA225FFA8C00048B13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0AD9D31E25FB8FA200897F93 /* Build configuration list for PBXProject "ProjetoEventos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

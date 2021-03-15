@@ -20,7 +20,7 @@ class DetalhesEventoTableViewController: UITableViewController {
         
         tableView?.register(UINib(nibName: "DetalhesTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
 
-        eventoDetalhe = chamada.buscarEventosViaApi(idEvento: idEvento)
+        eventoDetalhe = chamada.buscarDetalheEventosViaApi(idEvento: idEvento)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,12 +53,12 @@ class DetalhesEventoTableViewController: UITableViewController {
 
         if eventoDetalhe != nil {
             
-            var strImagem = eventoDetalhe!.image
-            let subStrIMagem = String(strImagem.prefix(5))
+            let strImagem = eventoDetalhe!.image
+            //let subStrIMagem = String(strImagem.prefix(5))
             
-            if (subStrIMagem == "http:") {
-                strImagem = strImagem.replacingOccurrences(of: "http", with: "https")
-            }
+            //if (subStrIMagem == "http:") {
+            //    strImagem = strImagem.replacingOccurrences(of: "http", with: "https")
+            //}
             let url = URL(string: strImagem)
             cell?.imageEvento.kf.setImage(with: url)
             
