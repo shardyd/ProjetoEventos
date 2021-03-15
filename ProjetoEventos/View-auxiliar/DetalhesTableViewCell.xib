@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KGk-i7-Jjw" customClass="DetalhesTableViewCell" customModule="ProjetoEventos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="763"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="763"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqh-QA-1NU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="442"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nofoto2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RU8-QQ-Zly">
+                                <rect key="frame" x="44" y="8" width="327" height="267"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="267" id="mRv-kn-Qzx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feira ate linha 2 teste linha 2 passando pra linha 2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB0-ml-gDE">
+                                <rect key="frame" x="8" y="265" width="398" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="tRb-dl-TYc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF0-oU-x4X">
+                                <rect key="frame" x="8" y="320" width="398" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="pab-Pv-afT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1J-1F-Edf">
+                                <rect key="frame" x="233" y="374" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Zg8-zS-ZQ3"/>
+                                    <constraint firstAttribute="width" constant="48" id="p0U-m9-chO"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="seinscrever.png"/>
+                                <connections>
+                                    <action selector="touchBtnInscrever:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XvC-O5-kqS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ty-Ju-eVi">
+                                <rect key="frame" x="133" y="374" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="4sc-ew-z70"/>
+                                    <constraint firstAttribute="width" constant="48" id="Exi-ex-XQ0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="sharenew.png"/>
+                                <connections>
+                                    <action selector="touchBtnShare:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dOq-H9-mMb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="442" id="3uC-Zt-ZOc"/>
+                            <constraint firstAttribute="trailing" secondItem="RU8-QQ-Zly" secondAttribute="trailing" constant="43" id="71W-1z-Cs6"/>
+                            <constraint firstAttribute="trailing" secondItem="vF0-oU-x4X" secondAttribute="trailing" constant="8" id="AEW-fx-Dd3"/>
+                            <constraint firstItem="1ty-Ju-eVi" firstAttribute="centerX" secondItem="vF0-oU-x4X" secondAttribute="centerX" constant="-50" id="J1l-s9-Qdj"/>
+                            <constraint firstItem="t1J-1F-Edf" firstAttribute="centerX" secondItem="vF0-oU-x4X" secondAttribute="centerX" constant="50" id="KeI-hY-MPb"/>
+                            <constraint firstItem="t1J-1F-Edf" firstAttribute="top" secondItem="vF0-oU-x4X" secondAttribute="bottom" constant="33" id="Lie-8I-4rD"/>
+                            <constraint firstItem="gB0-ml-gDE" firstAttribute="leading" secondItem="zqh-QA-1NU" secondAttribute="leading" constant="8" id="TRI-qp-JLf"/>
+                            <constraint firstItem="gB0-ml-gDE" firstAttribute="top" secondItem="zqh-QA-1NU" secondAttribute="top" constant="265" id="VFc-0b-XvP"/>
+                            <constraint firstAttribute="trailing" secondItem="gB0-ml-gDE" secondAttribute="trailing" constant="8" id="VFd-F1-gyD"/>
+                            <constraint firstItem="RU8-QQ-Zly" firstAttribute="top" secondItem="zqh-QA-1NU" secondAttribute="top" constant="8" id="YAc-IC-cds"/>
+                            <constraint firstItem="vF0-oU-x4X" firstAttribute="leading" secondItem="zqh-QA-1NU" secondAttribute="leading" constant="8" id="f4w-Vs-YV5"/>
+                            <constraint firstItem="RU8-QQ-Zly" firstAttribute="leading" secondItem="zqh-QA-1NU" secondAttribute="leading" constant="44" id="h0J-TA-wKq"/>
+                            <constraint firstItem="1ty-Ju-eVi" firstAttribute="top" secondItem="vF0-oU-x4X" secondAttribute="bottom" constant="33" id="mHy-KG-Hk5"/>
+                            <constraint firstItem="vF0-oU-x4X" firstAttribute="top" secondItem="RU8-QQ-Zly" secondAttribute="bottom" constant="45" id="sno-KK-6Fz"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="leU-B1-bFf">
+                        <rect key="frame" x="8" y="452" width="398" height="300"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="zqh-QA-1NU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3AO-Wt-V9T"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="leU-B1-bFf" secondAttribute="bottom" id="3Fv-j3-m9j"/>
+                    <constraint firstAttribute="trailing" secondItem="leU-B1-bFf" secondAttribute="trailing" constant="8" id="GTL-A4-xzJ"/>
+                    <constraint firstAttribute="trailing" secondItem="zqh-QA-1NU" secondAttribute="trailing" id="GtN-Cr-Nhk"/>
+                    <constraint firstItem="leU-B1-bFf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KcY-xk-DG0"/>
+                    <constraint firstItem="zqh-QA-1NU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OFc-vz-gl2"/>
+                    <constraint firstItem="leU-B1-bFf" firstAttribute="top" secondItem="zqh-QA-1NU" secondAttribute="bottom" constant="10" id="zWg-4k-vvl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageEvento" destination="RU8-QQ-Zly" id="R6P-Oa-6t8"/>
+                <outlet property="labelDataEvento" destination="vF0-oU-x4X" id="9Bb-Pr-NfJ"/>
+                <outlet property="labelTitulo" destination="gB0-ml-gDE" id="uPq-u4-iEX"/>
+                <outlet property="textViewDescricaoEvento" destination="leU-B1-bFf" id="g99-yz-sHe"/>
+                <outlet property="viewCabecalho" destination="zqh-QA-1NU" id="62K-jl-sag"/>
+            </connections>
+            <point key="canvasLocation" x="108.69565217391305" y="138.95089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="nofoto2.jpg" width="1501" height="980"/>
+        <image name="seinscrever.png" width="128" height="128"/>
+        <image name="sharenew.png" width="128" height="128"/>
+    </resources>
+</document>

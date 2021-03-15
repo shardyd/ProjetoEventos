@@ -7,11 +7,13 @@
 
 import UIKit
 import Kingfisher
+import ProgressHUD
 
 class EventosViewController: UIViewController {
     // MARK: - variaveis
     var eventos = [Eventos]()
     let button = UIButton()
+    let labelErro = UILabel()
     
     //MARK: outlets
     @IBOutlet var collectionView: UICollectionView!
@@ -32,6 +34,11 @@ class EventosViewController: UIViewController {
         collectionView?.register(UINib(nibName: "EventosCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EventosCollectionViewCell")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Eventos"
+    }
+    
     
     //MARK: funcoes swift
     private func buscarEventosViaApi () {
@@ -53,7 +60,13 @@ class EventosViewController: UIViewController {
             let decodedData = try decoder.decode([Eventos].self, from: quoteData)
             
             eventos = decodedData
-            print(decodedData[0].title)
+            
+            // inverti a array pra mostrar os eventos com foto primeiro
+            eventos = eventos.sorted { (first, second) -> Bool in
+                return first.id > second.id
+            }
+
+            //print(decodedData[0].title)
             
         } catch {
             print(error)
@@ -63,11 +76,16 @@ class EventosViewController: UIViewController {
     //MARK: funções do objective c
     @objc private func chamarDetalhesdoEvento(idEvento: String) {
         
-        let vc = DetalhesEventoViewController()
+//        let vc = DetalhesEventoViewController()
+//        vc.idEvento = idEvento
+//        vc.view.backgroundColor = .white
+//        navigationController?.pushViewController(vc, animated: true)
+        ProgressHUD.show()
+        let vc = DetalhesEventoTableViewController()
         vc.idEvento = idEvento
         vc.view.backgroundColor = .white
         navigationController?.pushViewController(vc, animated: true)
-        
+
     }
     
     @objc private func dismissSelf() {
@@ -79,6 +97,23 @@ class EventosViewController: UIViewController {
 //MARK: collection view delegate e datasource
 extension EventosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        //tira o icone da tela assim que for montar a collection
+        ProgressHUD.dismiss()
+        
+        if eventos.count == 0 {
+            
+            labelErro.text = "Algo deu errado, cheque seu acesso a internet e tente novamente!"
+            view.addSubview(labelErro)
+            labelErro.textColor = .white
+            labelErro.font = labelErro.font.withSize(24)
+            labelErro.numberOfLines = 4
+            labelErro.textAlignment = .center
+            labelErro.frame = CGRect(x: 100, y: 150, width: 200, height: 152)
+
+            
+        }
+        
         return eventos.count
     }
     
@@ -89,22 +124,31 @@ extension EventosViewController: UICollectionViewDataSource {
 
         cell.labelTituloEvento.text = dict.title
 
-        //if (dict.id == "4"){
-            var strImagem = dict.image
+        var strImagem = dict.image
+
+        if (dict.id == "1"){
+            //strImagem = "http://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png"
+            //strImagem = "https://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png"
+            strImagem = "https://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png"
+
+            let url = URL(string: strImagem)
+            cell.imageEvento.kf.setImage(with: url)
+
+            if cell.imageEvento.image == nil{
+                cell.imageEvento.image = UIImage(named: "nofoto2.jpg")
+            }
+        } else {
             let subStrIMagem = String(strImagem.prefix(5))
             
             if (subStrIMagem == "http:") {
                 strImagem = strImagem.replacingOccurrences(of: "http", with: "https")
             }
-            
-            //https://www.fernaogaivota.com.br/documents/10179/1665610/feira-troca-de-livros.jpg
-            //http://lproweb.procempa.com.br/pmpa/prefpoa/seda_news/usu_img/Papel%20de%20Parede.png
             let url = URL(string: strImagem)
             cell.imageEvento.kf.setImage(with: url)
-        //}
-        
-        if cell.imageEvento.image == nil{
-            cell.imageEvento.image = UIImage(named: "nofoto.jpg")
+            
+            if cell.imageEvento.image == nil{
+                cell.imageEvento.image = UIImage(named: "nofoto2.jpg")
+            }
         }
         
         cell.imageEvento.layer.cornerRadius = 15
@@ -128,12 +172,16 @@ extension EventosViewController: UICollectionViewDataSource {
 extension EventosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if eventos.count > 0 {
-            
-            let dict = self.eventos[indexPath.row]
-            let id = dict.id
-            self.chamarDetalhesdoEvento(idEvento: id)
-            
+        if Reachability.isConnectedToNetwork(){
+            if eventos.count > 0 {
+                let dict = self.eventos[indexPath.row]
+                let id = dict.id
+                self.chamarDetalhesdoEvento(idEvento: id)
+                
+            }
+        }else{
+            print("Internet Connection not Available!")
+            ProgressHUD.showError("Você não está conectado a internet, cheque sua rede e tente novamente!")
         }
     }
 }

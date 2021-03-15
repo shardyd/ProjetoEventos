@@ -6,31 +6,71 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ViewController: UIViewController {
     let button = UIButton()
+    let imageBack = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        view.backgroundColor = .systemBlue
+
+        //definicao imagem
+        let frame = view.frame
+        view.addSubview(imageBack)
+        imageBack.frame = frame
+        imageBack.image = UIImage(named: "entrada.png")
+        imageBack.translatesAutoresizingMaskIntoConstraints = false
+
+        /*var constraints = [NSLayoutConstraint]()
+        constraints.append(imageBack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5, constant: 100))
+        constraints.append(imageBack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50))
+        constraints.append(imageBack.centerXAnchor.constraint(equalTo: view.centerXAnchor))
+        constraints.append(imageBack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5, constant: 100))
+        NSLayoutConstraint.activate(constraints)*/
+        let horizontalConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 30)
+        let widthConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
+        let heightConstraintimageBack = NSLayoutConstraint(item: imageBack, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
+        view.addConstraints([horizontalConstraintimageBack, verticalConstraintimageBack, widthConstraintimageBack, heightConstraintimageBack])
+
+
+        //definicao botao
+        view.backgroundColor = .white
         button.setTitle("Ver Eventos", for: .normal)
         view.addSubview(button)
-        button.backgroundColor = .white
-        button.setTitleColor(.black, for: .normal)
-        button.frame = CGRect(x: 100, y: 100, width: 200, height: 52)
+        button.backgroundColor = UIColor(red: 11 / 255, green: 210 / 255 , blue: 0, alpha: 1)
+        button.setTitleColor(.white, for: .normal)
+        button.frame = CGRect(x: 100, y: 150, width: 200, height: 52)
+        button.layer.cornerRadius = 15
+        button.clipsToBounds = true
         button.addTarget(self, action: #selector(chamarTelaEventos), for: .touchUpInside)
+     
+                
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: -30)
+        let widthConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 200)
+        let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 52)
+        view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+
         
     }
 
     @objc private func chamarTelaEventos() {
-        let rootVC = EventosViewController()
-        rootVC.title = "Eventos Ativos"
-        let navVC = UINavigationController(rootViewController: rootVC)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true)
         
+        ProgressHUD.show()
+        
+        if Reachability.isConnectedToNetwork(){
+            let rootVC = EventosViewController()
+            let navVC = UINavigationController(rootViewController: rootVC)
+            navVC.modalPresentationStyle = .fullScreen
+            present(navVC, animated: true)
+        }else{
+            print("Internet Connection not Available!")
+            ProgressHUD.showError("Você não está conectado a internet, cheque sua rede e tente novamente!")
+        }
     }
     
     
